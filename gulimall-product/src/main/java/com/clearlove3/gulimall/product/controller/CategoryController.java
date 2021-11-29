@@ -78,6 +78,7 @@ public class CategoryController {
 
     /**
      * 删除
+     * @RequestBody 获取请求体，必须发送post请求
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("product:category:delete")
