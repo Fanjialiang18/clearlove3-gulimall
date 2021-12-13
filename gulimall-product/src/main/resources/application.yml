@@ -8,8 +8,8 @@ spring:
     nacos:
       server-addr: 127.0.0.1:8848
     alicloud:
-      access-key: LTAI5tDfBPjYJskXYGK1aTBi
-      secret-key: UxFhHD7xt0FpTwEYIPfz4XpcskvqXM
+      access-key:
+      secret-key:
       oss:
         endpoint: oss-cn-guangzhou.aliyuncs.com
   application:
