@@ -78,13 +78,6 @@
             <artifactId>spring-cloud-loadbalancer</artifactId>
             <version>2.2.9.RELEASE</version>
         </dependency>
-
-<!--        OSS-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alicloud-oss</artifactId>
-            <version>2.2.0.RELEASE</version>
-        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>

@@ -1,11 +1,9 @@
 package com.clearlove3.gulimall.product;
 
-import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClient;
-import com.aliyun.oss.OSSClientBuilder;
+
 import com.clearlove3.gulimall.product.entity.BrandEntity;
 import com.clearlove3.gulimall.product.service.BrandService;
-import org.checkerframework.checker.guieffect.qual.AlwaysSafe;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,8 +17,6 @@ class GulimallProductApplicationTests {
 
     @Autowired
     BrandService brandService;
-    @Autowired
-    OSSClient ossClient;
 
     @Test
     void contextLoads() {
@@ -39,11 +35,11 @@ class GulimallProductApplicationTests {
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
 */
 // 填写本地文件的完整路径。如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件流。
-        InputStream inputStream = new FileInputStream("D:\\壁纸\\pixiv\\pixiv_55.jpg");
+//        InputStream inputStream = new FileInputStream("D:\\壁纸\\pixiv\\pixiv_55.jpg");
 // 依次填写Bucket名称（例如examplebucket）和Object完整路径（例如exampledir/exampleobject.txt）。Object完整路径中不能包含Bucket名称。
-        ossClient.putObject("gulimall-clearlove3", "2.jpg", inputStream);
-        System.out.println("上传完成");
+//        ossClient.putObject("gulimall-clearlove3", "2.jpg", inputStream);
+//        System.out.println("上传完成");
 // 关闭OSSClient。
-        ossClient.shutdown();
+//        ossClient.shutdown();
     }
 }
