@@ -4,10 +4,10 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
     alicloud:
-      secret-key: ***
-      access-key: ***
+      secret-key:
+      access-key:
       oss:
-        endpoint: ***
+        endpoint: oss-cn-guangzhou.aliyuncs.com
         bucket: gulimall-clearlove3
   application:
     name: gulimall-third-party
