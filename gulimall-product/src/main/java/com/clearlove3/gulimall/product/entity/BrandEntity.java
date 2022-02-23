@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.clearlove3.common.valid.ListValue;
 import lombok.Data;
 import org.hibernate.validator.constraints.URL;
 
@@ -48,6 +50,7 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 显示状态[0-不显示；1-显示]
 	 */
+	@ListValue(vals={0,1})
 	private Integer showStatus;
 	/**
 	 * 检索首字母

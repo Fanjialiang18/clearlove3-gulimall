@@ -76,6 +76,7 @@ public class BrandController {
         }else {
             brandService.save(brand);
         }*/
+        //现在使用统一异常处理
         brandService.save(brand);
         return R.ok();
     }
