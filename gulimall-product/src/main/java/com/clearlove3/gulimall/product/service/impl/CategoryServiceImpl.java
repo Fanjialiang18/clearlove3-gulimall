@@ -1,5 +1,6 @@
 package com.clearlove3.gulimall.product.service.impl;
 
+import com.clearlove3.gulimall.product.service.CategoryBrandRelationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import com.clearlove3.common.utils.Query;
 import com.clearlove3.gulimall.product.dao.CategoryDao;
 import com.clearlove3.gulimall.product.entity.CategoryEntity;
 import com.clearlove3.gulimall.product.service.CategoryService;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("categoryService")
@@ -26,6 +28,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     //这里可以用自动注入，也可以用ServiceImpl中的Mapper，mapper就是CategoryDao
 //    @Autowired
 //    CategoryDao categoryDao;
+
+    @Autowired
+    CategoryBrandRelationService categoryBrandRelationService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -88,6 +93,18 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         List<Long> parentPath=findParentPath(catelogId,paths);
         Collections.reverse(parentPath);
         return (Long[]) paths.toArray(new Long[parentPath.size()]);
+    }
+
+    /**
+     * 级联更新所有关联数据
+     * @param category
+     */
+    @Override
+    @Transactional
+    public void updateCascade(CategoryEntity category) {
+        this.updateById(category);
+        categoryBrandRelationService.updateCategory(category.getCatId(),
+                category.getName());
     }
 
     private List<Long> findParentPath(Long catelogId,List<Long> paths){
