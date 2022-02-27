@@ -34,7 +34,7 @@ public class CategoryBrandRelationController {
 //    @RequestMapping("/catelog/list")
     @GetMapping("/catelog/list")
     //@RequiresPermissions("product:categorybrandrelation:list")
-    public R list(@RequestParam("brandId") Long brandId){
+    public R cateloglist(@RequestParam("brandId") Long brandId){
         List<CategoryBrandRelationEntity> data=
                 categoryBrandRelationService.list(
                         new QueryWrapper<CategoryBrandRelationEntity>().
@@ -44,6 +44,16 @@ public class CategoryBrandRelationController {
         return R.ok().put("data", data);
     }
 
+    /**
+     * 列表
+     */
+//    @RequestMapping("/catelog/list")
+    @RequestMapping("/list")
+    //@RequiresPermissions("product:categorybrandrelation:list")
+    public R list(@RequestParam() Map<String,Object> params){
+        PageUtils page = categoryBrandRelationService.queryPage(params);
+        return R.ok().put("page", page);
+    }
 
     /**
      * 信息
